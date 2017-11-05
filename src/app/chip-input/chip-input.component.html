@@ -1,0 +1,11 @@
+<div id="search-component">
+  <h4>Hero Search</h4>
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+  <div>
+    <!-- (click)="gotoDetail(hero)" -->
+    <div *ngFor="let language of filteredLanguages"
+         class="search-result" >
+        {{language.name}}
+    </div>
+  </div>
+</div>
