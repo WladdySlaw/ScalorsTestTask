@@ -4,6 +4,7 @@
 1. Clone this repository: https://github.com/WladdySlaw/ScalorsTestTask.git
 2. run `npm install`
 3. run `ng serve`
+4. Navigate to `http://localhost:4200/`.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.9.
 
