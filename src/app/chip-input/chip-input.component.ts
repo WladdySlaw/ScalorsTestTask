@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { NgModel } from '@angular/forms';
 
 class Language {
   id: number;
@@ -12,23 +13,37 @@ class Language {
 })
 export class ChipInputComponent implements OnInit {
   @Input() languages: Language[];
-  filteredLanguages: Language[] = [];
+  selectedLanguages: Language[] = [];
+  term = '';
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  /**
-  * @name search
-  * @param String Value from search input
-  * @description Method to get value from search input
-  **/
-  search(term: string): void {
-    this.filteredLanguages = this.languages.filter((language) => language.name.toLowerCase().indexOf(term.toLowerCase()) > -1);
-    console.log(this.filteredLanguages);
-    // console.log(this.languages);
-    // console.log('term value is', term);
+  get filteredLanguages() {
+    return this.languages.filter((language) => language.name.toLowerCase().indexOf(this.term.toLowerCase()) > -1);
   }
 
+  /**
+  * @name addChip
+  * @param Object Language what need to add
+  * @description Method to add chip
+  **/
+  addChip(language: Language): void {
+    let index = this.languages.indexOf(language);
+    this.languages.splice(index, 1);
+    this.selectedLanguages.push(language);
+  }
+
+  /**
+  * @name removeChip
+  * @param Object Language what need to remove
+  * @description Method to remove chip
+  **/
+  removeChip(language: Language, index: number): void {
+    this.selectedLanguages.splice(index, 1);
+    this.languages.push(language);
+    this.languages.sort((a, b) => a.name == b.name ? 0 : +(a.name > b.name) || -1);
+  }
 }

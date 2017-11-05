@@ -1,10 +1,16 @@
 <div id="search-component">
   <h4>Hero Search</h4>
-  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
-  <div>
-    <!-- (click)="gotoDetail(hero)" -->
+  <div class="chip-container">
+      <div class="chip-element" *ngFor="let chip of selectedLanguages; index as i">
+        {{chip.name}}
+        <button (click)="removeChip(chip, i)">x</button>
+      </div>
+      <input [(ngModel)]="term" />
+  </div>
+  <div *ngIf="term">
     <div *ngFor="let language of filteredLanguages"
-         class="search-result" >
+        (click)="addChip(language)"
+        class="search-result" >
         {{language.name}}
     </div>
   </div>
