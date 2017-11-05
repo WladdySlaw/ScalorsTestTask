@@ -1,7 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
+<div style="text-align:center;">
+  <h1 style="margin-bottom: 30px;">
     Welcome to {{title}}!
-    <chip-input [languages]="languages"></chip-input>
+    <chip-input [(ngModel)]="selectedLanguages" [chips]="languages"></chip-input>
   </h1>
 </div>

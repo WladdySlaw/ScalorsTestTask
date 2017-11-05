@@ -1,17 +1,20 @@
-<div id="search-component">
-  <h4>Hero Search</h4>
-  <div class="chip-container">
-      <div class="chip-element" *ngFor="let chip of selectedLanguages; index as i">
-        {{chip.name}}
-        <button (click)="removeChip(chip, i)">x</button>
+<div class="chip">
+  <div class="chip__elements">
+      <div class="chip-element" *ngFor="let chip of selectedChips; index as i">
+          <p>{{chip.name}}</p>
+          <button class="chip-element__remove" (click)="removeChip(chip, i)">x</button>
       </div>
-      <input [(ngModel)]="term" />
+      <input (keydown)="onKeyDown($event.keyCode)"
+             [(ngModel)]="term"
+             placeholder="Type a programing language..." />
   </div>
-  <div *ngIf="term">
-    <div *ngFor="let language of filteredLanguages"
-        (click)="addChip(language)"
-        class="search-result" >
-        {{language.name}}
+  <div class="chip__autocomplete" *ngIf="term && filteredChips.length">
+    <div *ngFor="let chip of filteredChips; index as i"
+        (mouseenter) ="selectedIndex = i"
+        [class.selected]="i === selectedIndex"
+        (click)="addChip(chip)"
+        class="chip-result" >
+        {{chip.name}}
     </div>
   </div>
 </div>

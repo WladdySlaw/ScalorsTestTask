@@ -1,0 +1,65 @@
+.chip {
+  margin: 20px 0;
+}
+
+.chip__elements {
+  width: 500px;
+  min-height: 40px;
+  border: 1px solid;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  border-radius: 2px;
+}
+
+.chip__elements input {
+  border: 0;
+  font-size: 12px;
+  padding: 12px;
+  width: 175px;
+}
+.chip__elements input:focus {
+  outline: 0;
+}
+
+.chip-element {
+  position: relative;
+}
+
+.chip-element p {
+  margin: 0;
+  padding: 12px;
+  font-size: 12px;
+}
+
+.chip-element button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0;
+  background-color: transparent;
+}
+
+.chip-element button:focus{
+  outline: 0;
+}
+
+.chip__autocomplete {
+  width: 500px;
+  margin: 0 auto;
+  border-bottom: 1px solid;
+  border-right:  1px solid;
+  border-left: 1px solid;
+  text-align: left;
+}
+
+.chip-result {
+  font-size: 12px;
+  padding: 12px;
+}
+
+.chip-result.selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
