@@ -1,5 +1,10 @@
 # ScalorsTask
 
+# How to run
+1. Clone this repository: https://github.com/WladdySlaw/ScalorsTestTask.git
+2. run `npm install`
+3. run `ng serve`
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.9.
 
 ## Development server
